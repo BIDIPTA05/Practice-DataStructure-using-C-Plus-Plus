@@ -1,0 +1,46 @@
+{
+
+    // "emmet.triggerExpansionOnTab": true,
+    // "files.associations": {"*html":"html"},
+
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "explorer.confirmDelete": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true,
+    "html-css-class-completion.JavaScriptLanguages": [
+
+        "javascript",
+        "javascriptreact",
+        "typescriptreact"
+    ],
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "git.autofetch": true,
+    "C_Cpp.files.exclude": {
+
+        "**/.vscode": true
+    },
+    "editor.cursorBlinking": "expand",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "workbench.editor.enablePreview": false,
+    "editor.renderControlCharacters": true,
+    "terminal.integrated.automationShell.linux": "",
+
+    
+
+}
+
