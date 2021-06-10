@@ -3,36 +3,11 @@ using namespace std;
 
 int main()
 {
-
-	int n;
+	int n, m;
 	cin >> n;
-	int arr[n];
-	for (int i = 0; i < n; i++)
-	{
-		cin >> arr[n];
-	}
-
-	int ans = 2;
-	int pd = (arr[1] - arr[0]);
-	int curr = 2;
-
-	for (int j = 2; j < n; j++)
-	{
-
-		if (pd == (arr[j] - arr[j - 1]))
-		{
-			curr++;
-		}
-
-		else
-		{
-			pd = arr[j] - arr[j - 1];
-			curr = 2;
-		}
-		ans = max(ans, curr);
-	}
-
-	cout << ans;
+	int s = 2 * n - 1;
+	int arr[s][s];
+	
 
 	return 0;
 }
