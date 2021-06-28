@@ -2,12 +2,11 @@
 using namespace std;
 
 int main()
-{
-	int n, m;
-	cin >> n;
-	int s = 2 * n - 1;
-	int arr[s][s];
-	
 
+{
+	int a, b;
+	cin >> a >> b;
+	swap(a, b);
+	cout << a << " " << b;
 	return 0;
 }
