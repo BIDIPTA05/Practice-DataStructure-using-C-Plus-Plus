@@ -2,14 +2,14 @@
 using namespace std;
 #define n 100
 
-class stk
+class Stack
 {
 
     int *arr;
     int top;
 
 public:
-    stk()
+    Stack()
     {
         arr = new int[n];
         top = -1;
@@ -56,7 +56,7 @@ public:
 
 int main()
 {
-    stk st;
+    Stack st;
     st.push(1);
     st.push(2);
     st.push(3);
