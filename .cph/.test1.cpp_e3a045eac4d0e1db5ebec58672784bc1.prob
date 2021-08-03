@@ -1,0 +1,1 @@
+{"name":"Local: test1","url":"g:\\College\\Docs\\Placment and Intership\\C++ Files\\test1.cpp","tests":[{"id":1627736654955,"input":"1\n3\n1 4 5\n1 3 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"g:\\College\\Docs\\Placment and Intership\\C++ Files\\test1.cpp","group":"local","local":true}
