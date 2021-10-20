@@ -1,44 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
+vector<vector<int>> generate(int numRows)
 {
-
-    int data;
-    struct Node *left;
-    struct Node *right;
-
-    Node(int val)
+    vector<vector> pascals_triangle;
+    for (int i = 0; i < numRows; i++)
     {
-        data = val;
-        left = NULL;
-        right = NULL;
-    }
-};
+        vector<int> inner_sets;
+        for (int j = 0; j <= i; j++)
+        {
 
-void preorder(struct Node *root)
-{
-    if (root == NULL)
-    {
-        return;
+            if ((j == 0) || (j == i))
+            {
+                inner_sets.push_back(1);
+            }
+            else
+            {
+                inner_sets.push_back(pascals_triangle[i - 1][j - 1] + pascals_triangle[i - 1][j]);
+            }
+        }
+        pascals_triangle.push_back(inner_sets);
     }
-    cout << root->data << " ";
-    preorder(root->left);
-    preorder(root->right);
+    return pascals_triangle;
 }
 
 int main()
 {
-
-    struct Node *root = new Node(1);
-    root->left = new Node(2);
-    root->right = new Node(3);
-    root->left->left = new Node(4);
-    root->left->right = new Node(5);
-    root->right->left = new Node(6);
-    root->right->right = new Node(7);
-
-    preorder(root);
+    generate(5);
 
     return 0;
 }

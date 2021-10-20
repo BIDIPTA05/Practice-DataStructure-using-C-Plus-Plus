@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
+class Node
 {
+public:
     int data;
     Node *left;
     Node *right;
@@ -17,7 +18,7 @@ struct Node
 
 int search(int inorder[], int start, int end, int curr)
 {
-    for (int i = start; i < end; i++)
+    for (int i = start; i <= end; ++i)
     {
         if (inorder[i] == curr)
         {
@@ -27,47 +28,37 @@ int search(int inorder[], int start, int end, int curr)
     return -1;
 }
 
-Node *buildTree(int preorder[], int inorder[], int start, int end)
+Node *buildtree(int preorder[], int inorder[], int start, int end)
 {
-    cout << "Print";
-    int idx = 0;
+    static int idx = 0; //The variable idx is not getting initialized for every time
     if (start > end)
     {
         return NULL;
     }
-    int curr = preorder[idx];
-    idx++;
+    int curr = preorder[idx++];
     Node *node = new Node(curr);
-    if (start == end)
-    {
-        return node;
-    }
-    int pos = search(inorder, start, end, curr);
-    node->left = buildTree(preorder, inorder, start, pos - 1);
-    node->right = buildTree(preorder, inorder, pos + 1, end);
 
+    int pos = search(inorder, start, end, curr);
+    node->left = buildtree(preorder, inorder, start, pos - 1);
+    node->right = buildtree(preorder, inorder, pos + 1, end);
     return node;
 }
-
-void printInorder(Node *root)
+void inorderprint(Node *root)
 {
-    cout << "disp";
     if (root == NULL)
     {
         return;
     }
-    printInorder(root->left);
+    inorderprint(root->left);
     cout << root->data << " ";
-    printInorder(root->right);
+    inorderprint(root->right);
 }
 
 int main()
 {
-    int preorder[] = {1, 2, 3, 4, 5};
+    int preorder[] = {1, 2, 4, 3, 5};
     int inorder[] = {4, 2, 1, 5, 3};
-
-    Node *root = buildTree(preorder, inorder, 0, 4);
-    cout << "Inorder traversal";
-    printInorder(root);
+    Node *root = buildtree(preorder, inorder, 0, 4);
+    inorderprint(root);
     return 0;
 }

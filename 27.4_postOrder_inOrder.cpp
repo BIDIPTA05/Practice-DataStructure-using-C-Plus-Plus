@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
+class Node
 {
+public:
     int data;
     Node *left;
     Node *right;
@@ -17,7 +18,7 @@ struct Node
 
 int search(int inorder[], int start, int end, int curr)
 {
-    for (int i = start; i < end; i++)
+    for (int i = start; i <= end; ++i)
     {
         if (inorder[i] == curr)
         {
@@ -29,7 +30,7 @@ int search(int inorder[], int start, int end, int curr)
 
 Node *buildTree(int postorder[], int inorder[], int start, int end)
 {
-    int idx = 4;
+    static int idx = 4; //The variable idx is not getting initialized for every time
     if (start > end)
     {
         return NULL;
@@ -37,17 +38,12 @@ Node *buildTree(int postorder[], int inorder[], int start, int end)
     int curr = postorder[idx];
     idx--;
     Node *node = new Node(curr);
-    if (start == end)
-    {
-        return node;
-    }
+
     int pos = search(inorder, start, end, curr);
     node->right = buildTree(postorder, inorder, pos + 1, end);
     node->left = buildTree(postorder, inorder, start, pos - 1);
-
     return node;
 }
-
 void printInorder(Node *root)
 {
     if (root == NULL)
