@@ -1,32 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> generate(int numRows)
+bool test(string s, string t)
 {
-    vector<vector> pascals_triangle;
-    for (int i = 0; i < numRows; i++)
-    {
-        vector<int> inner_sets;
-        for (int j = 0; j <= i; j++)
-        {
+    sort(s.begin(), s.end());
+    sort(t.begin(), t.end());
 
-            if ((j == 0) || (j == i))
-            {
-                inner_sets.push_back(1);
-            }
-            else
-            {
-                inner_sets.push_back(pascals_triangle[i - 1][j - 1] + pascals_triangle[i - 1][j]);
-            }
-        }
-        pascals_triangle.push_back(inner_sets);
-    }
-    return pascals_triangle;
+    if (s == t)
+        return true;
+    return false;
 }
 
 int main()
 {
-    generate(5);
+    string s = "rat", t = "car";
+    cout << test(s, t);
 
     return 0;
 }
