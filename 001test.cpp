@@ -1,25 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int catalan(int n)
-{
-    if (n <= 1)
-        return 1;
-    int res = 0;
-
-    for (int i = 0; i <= n - 1; i++)
-    {
-        res += catalan(i) * catalan(n - i - 1);
-    }
-
-    return res;
-}
-
 int main()
 {
-    for (int i = 0; i < 10; i++)
+    vector<int> nums = {1, 1, 2, 3, 3, 4, 4, 5, 5, 9, 9};
+    int n = nums.size();
+    int ans;
+    if (n == 0)
+        return nums[0];
+    for (int i = 0; i < n - 1; i = i + 2)
     {
-        cout << catalan(i) << " ";
+        if (nums[i] != nums[i + 1])
+        {
+            ans = nums[i];
+        }
     }
+
     return 0;
 }
